@@ -46,12 +46,12 @@ If `map.md` exists, skip to section 4.
 - Their own repo: "Why did you build this? What problem did you have before any of this code existed?" Ask even if the README answers it.
 - Someone else's repo: work out the original problem from the README and first commits, then: "Here's the situation: <plain words, no solution terms>. How would you solve it?"
 
-In the same message say: "Mapping the repo's hardest design problems in the background. Give me a few minutes." Start a background subagent on section 3 and keep talking. Until the map exists, let them design for the root problem alone, no constraints. Without subagents, build the map first.
+In the same message say: "Mapping the repo's hardest design problems in the background. Give me a few minutes." Start a background subagent on section 3 and keep talking. Put the Safety rules from section 1 word for word in its prompt. Tell it to use only read-only tools (reading files, searching, the read-only git commands) and to write nothing except `map.md`. Until the map exists, let them design for the root problem alone, no constraints. Without subagents, build the map first.
 
 ## 3. Build the map (background)
 
 1. Survey history with read-only git: `git log --reverse --format='%h %ad %s' --date=short | head -20`, `git log --format='%h %s' -i -E --grep='refactor|rewrit|replac|migrat|switch|redesign|cache|schema|split|extract' | head -40`, and most-changed files via `git log --no-merges --format= --name-only | grep -v -E 'lock|node_modules|dist|build' | sort | uniq -c | sort -rn | head -20`. If there's no history, skip to step 2.
-2. Read the README, any design docs, and entry points (package.json scripts and main, server or app or index files). Follow imports outward. Most-imported files hold shared state; files that import the most hold the main flow. Open turning-point commits with `git show --stat <sha>`. Trust code and diffs over commit messages.
+2. Read the README, any design docs, and entry points (package.json scripts and main, server or app or index files). Follow imports outward. Most-imported files hold shared state; files that import the most hold the main flow. Open turning-point commits with `git show --stat --no-textconv --no-ext-diff <sha>` (with the `-c` flags from the Safety rules). Trust code and diffs over commit messages.
 3. Pick 5 to 10 decisions the user could invent from the problem: how data moves, where state lives, how failures are handled, why a part is separate and what crosses its boundary, auth and permissions, caching. Skip framework or library picks, styling, naming and config.
 4. Order them the way the system would be built from nothing.
 5. For each decision, judge the repo's own design honestly: is it solid, fine, or weak, and why? Note any bugs, missing edge cases or over-engineering.
@@ -110,6 +110,7 @@ Fields for each fix: Fix (short imperative line) | Priority (High, Medium, Low) 
 
 - Default: append to `~/.design-duel/<repo-name>/fixes.md` as a markdown table. Read it first and skip anything already listed.
 - Optional, in the Claude app: if an artifact tool with a Sheets type and the Claude Docs connector are both available, offer once to keep the log as a Sheet titled `<project name> fix log` instead, with those columns, a declared table, and dropdowns for Priority and Status. If they say yes, find or create it and add rows there from then on. Never change or delete rows the user has edited.
+- Security flaws (auth bypass, injection, exposed secrets, missing permission checks) go in the local `fixes.md` only, with no exploit details. Put one in the Sheet only if the user says yes to that specific row. A shared log of open vulnerabilities is effectively a list of ways in.
 - Tell the user in one line how many fixes were added and where.
 
 ## 6. Log it
