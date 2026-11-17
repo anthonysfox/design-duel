@@ -1,0 +1,15 @@
+{
+  "name": "design-duel",
+  "description": "Claude Code plugin for learning a codebase by designing it yourself and dueling the repo's design.",
+  "owner": {
+    "name": "Anthony Fox",
+    "url": "https://github.com/anthonysfox"
+  },
+  "plugins": [
+    {
+      "name": "design-duel",
+      "source": "./",
+      "description": "Design each part of a codebase yourself, then get an honest verdict against what's actually there."
+    }
+  ]
+}

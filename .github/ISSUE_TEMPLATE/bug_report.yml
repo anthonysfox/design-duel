@@ -1,0 +1,46 @@
+name: Bug report
+description: A round went wrong, a verdict was off, or the skill misbehaved
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting! A rough description is plenty.
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where were you using it?
+      options:
+        - Claude Code (terminal)
+        - Claude app (web, desktop or mobile)
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Which mode?
+      options:
+        - Learning session (/design-duel)
+        - Review (/design-duel review)
+        - Interview (/design-duel interview)
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: Repo you dueled
+      description: A public URL if you can share it, or just the language and rough size
+      placeholder: https://github.com/someone/some-repo
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what did it do instead?
+    validations:
+      required: true
+  - type: textarea
+    id: transcript
+    attributes:
+      label: Relevant bit of the conversation (optional)
+      description: Paste the few messages around the problem. Remove anything private first.
+      render: markdown

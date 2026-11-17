@@ -1,0 +1,15 @@
+name: Idea
+description: Suggest a new mode, a better kind of round, or any improvement
+labels: ["idea"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What's the idea?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why would it help?
+      description: What were you trying to do when you thought of it?
