@@ -1,6 +1,6 @@
 {
   "name": "design-duel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Learn a codebase by designing its parts yourself, then see an honest verdict on whether your design or the repo's is better.",
   "author": {
     "name": "Anthony Fox",
@@ -9,5 +9,12 @@
   "homepage": "https://github.com/anthonysfox/design-duel",
   "repository": "https://github.com/anthonysfox/design-duel",
   "license": "MIT",
-  "keywords": ["learning", "codebase", "system-design", "interview-prep", "code-review", "skill"]
+  "keywords": [
+    "learning",
+    "codebase",
+    "system-design",
+    "interview-prep",
+    "code-review",
+    "skill"
+  ]
 }
