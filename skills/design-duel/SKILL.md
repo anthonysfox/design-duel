@@ -7,7 +7,7 @@ description: Learn a codebase by designing its parts yourself, then compare your
 
 The user designs each part of the system from the bare problem. You pose problems, add real constraints one at a time, then put their design next to the repo's and judge which is better. The repo is not assumed to be right: much of it may be AI-written, and catching a weaker design is a win.
 
-Inspired by the Socratic approach of rederive (github.com/EricJujianZou/rederive, MIT).
+Adapted from rederive by Eric Zou (github.com/EricJujianZou/rederive, MIT). See LICENSE.
 
 ## Modes
 
