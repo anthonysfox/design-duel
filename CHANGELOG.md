@@ -2,6 +2,12 @@
 
 All notable changes to Design Duel are listed here. This project follows [Semantic Versioning](https://semver.org).
 
+## [1.0.2] - 2026-11-18
+
+### Fixed
+- The skill folder now has its own LICENSE, so the zip, `npx skills add` and hand-copied installs keep the MIT notices (including rederive's)
+- The map step's git commands now show the hardened flags in full, so they aren't copied without them
+
 ## [1.0.1] - 2026-11-18
 
 ### Security
