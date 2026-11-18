@@ -165,6 +165,6 @@ Found a bad round or have an idea? Open an [issue](https://github.com/anthonysfo
 
 ## Credits
 
-Inspired by [rederive](https://github.com/EricJujianZou/rederive) by Eric Zou (MIT), which pioneered the "rederive the design yourself" approach. Design Duel adds the head-to-head verdict, review and interview modes, the fix log, and interactive rounds.
+Built on [rederive](https://github.com/EricJujianZou/rederive) by Eric Zou (MIT), which pioneered the "rederive the design yourself" approach. The skill is adapted from rederive's, and its copyright notice is kept in [LICENSE](LICENSE). Design Duel adds the head-to-head verdict, review and interview modes, the fix log, and interactive rounds.
 
 Made by [Anthony Fox](https://anthonyfox.dev). MIT licensed.
