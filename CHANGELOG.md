@@ -2,7 +2,7 @@
 
 All notable changes to Design Duel are listed here. This project follows [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [1.0.1] - 2026-11-18
 
 ### Security
 - Git URLs: only https or ssh accepted; cloned with `--` and quoting into `~/.design-duel/<repo>/src`, not the current directory, so the clone's `CLAUDE.md` and `.claude/` files can't load as project instructions
