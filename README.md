@@ -124,6 +124,7 @@ Everything lives in `~/.design-duel/<repo-name>/`, never inside your repo:
 | `log.md` | Per problem: verdict, where you got stuck, what you found on your own |
 | `fixes.md` | Bugs and improvements found in your repo, with priority and file paths |
 | `talking-points.md` | Interview answers, written from your session |
+| `src/` | The clone, when you duel a repo by URL. It's kept here rather than in your current folder so its own Claude config never loads into your workspace |
 
 In the Claude app, it can keep the fix log as a Sheet instead, with Priority and Status dropdowns you can update from your phone.
 

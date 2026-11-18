@@ -38,6 +38,9 @@ if market:
     names = [p.get("name") for p in market.get("plugins", [])]
     if plugin and plugin.get("name") not in names:
         errors.append("marketplace.json: doesn't list the plugin named in plugin.json")
+    for p in market.get("plugins", []):
+        if p.get("source") != "./":
+            errors.append(f"marketplace.json: plugin '{p.get('name')}' source must be './' (got {p.get('source')!r})")
 
 changelog = ROOT / "CHANGELOG.md"
 if plugin and plugin.get("version") and changelog.exists():
