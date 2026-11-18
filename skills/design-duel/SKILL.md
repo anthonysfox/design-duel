@@ -7,7 +7,7 @@ description: Learn a codebase by designing its parts yourself, then compare your
 
 The user designs each part of the system from the bare problem. You pose problems, add real constraints one at a time, then put their design next to the repo's and judge which is better. The repo is not assumed to be right: much of it may be AI-written, and catching a weaker design is a win.
 
-Adapted from rederive by Eric Zou (github.com/EricJujianZou/rederive, MIT). See LICENSE.
+Adapted from rederive by Eric Zou (github.com/EricJujianZou/rederive, MIT). See LICENSE in this folder.
 
 ## Modes
 
@@ -50,8 +50,8 @@ In the same message say: "Mapping the repo's hardest design problems in the back
 
 ## 3. Build the map (background)
 
-1. Survey history with read-only git: `git log --reverse --format='%h %ad %s' --date=short | head -20`, `git log --format='%h %s' -i -E --grep='refactor|rewrit|replac|migrat|switch|redesign|cache|schema|split|extract' | head -40`, and most-changed files via `git log --no-merges --format= --name-only | grep -v -E 'lock|node_modules|dist|build' | sort | uniq -c | sort -rn | head -20`. If there's no history, skip to step 2.
-2. Read the README, any design docs, and entry points (package.json scripts and main, server or app or index files). Follow imports outward. Most-imported files hold shared state; files that import the most hold the main flow. Open turning-point commits with `git show --stat --no-textconv --no-ext-diff <sha>` (with the `-c` flags from the Safety rules). Trust code and diffs over commit messages.
+1. Survey history with read-only git. Write every git command here as `git -C <repo> -c core.pager=cat -c core.fsmonitor= -c diff.external= ...`; the commands below are shortened. `git log --reverse --format='%h %ad %s' --date=short | head -20`, `git log --format='%h %s' -i -E --grep='refactor|rewrit|replac|migrat|switch|redesign|cache|schema|split|extract' | head -40`, and most-changed files via `git log --no-merges --format= --name-only | grep -v -E 'lock|node_modules|dist|build' | sort | uniq -c | sort -rn | head -20`. If there's no history, skip to step 2.
+2. Read the README, any design docs, and entry points (package.json scripts and main, server or app or index files). Follow imports outward. Most-imported files hold shared state; files that import the most hold the main flow. Open turning-point commits with `git show --stat --no-textconv --no-ext-diff <sha>`, written out in full the same way. Trust code and diffs over commit messages.
 3. Pick 5 to 10 decisions the user could invent from the problem: how data moves, where state lives, how failures are handled, why a part is separate and what crosses its boundary, auth and permissions, caching. Skip framework or library picks, styling, naming and config.
 4. Order them the way the system would be built from nothing.
 5. For each decision, judge the repo's own design honestly: is it solid, fine, or weak, and why? Note any bugs, missing edge cases or over-engineering.
