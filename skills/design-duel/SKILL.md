@@ -12,8 +12,10 @@ Adapted from rederive by Eric Zou (github.com/EricJujianZou/rederive, MIT). See 
 ## Modes
 
 - `/design-duel` or `/design-duel <path|git-url>`: a learning session (sections 1 to 6).
-- `/design-duel review`: re-check weak spots from past sessions (section 7).
-- `/design-duel interview`: turn the log into interview talking points (section 8).
+- `/design-duel review [repo]`: re-check weak spots from past sessions (section 7).
+- `/design-duel interview [repo]`: turn the log into interview talking points (section 8).
+
+For review and interview, pick the repo the same way as section 1 (no argument: the current directory; or a path), or by a name that matches a folder in `~/.design-duel/`. Use only that repo's state. If it has no `log.md`, never switch to another repo's log on your own: say there are no sessions for it, list the repos in `~/.design-duel/` that have a `log.md`, and ask which one, or offer to start a learning session here.
 
 The user can talk naturally at any time: "I'm stuck", "skip", "start over", "switch to interview mode".
 
@@ -130,11 +132,11 @@ At session end, give the full path to `log.md` (and the fix log, if any), name t
 
 ## 7. Review mode
 
-Read `log.md` for entries marked `review: yes`, oldest first. For each, re-pose the core problem in one or two sentences, fresh, without the old constraints, and ask how they'd solve it. If they nail it quickly, flip it to `review: no`. If not, run a short version of section 4 and keep it flagged. Cap a review at five problems.
+Read the chosen repo's `log.md` for entries marked `review: yes`, oldest first. For each, re-pose the core problem in one or two sentences, fresh, without the old constraints, and ask how they'd solve it. If they nail it quickly, flip it to `review: no`. If not, run a short version of section 4 and keep it flagged. Cap a review at five problems.
 
 ## 8. Interview mode
 
-Read `log.md` and `map.md`. For each completed problem, write a talking point into `talking-points.md`:
+Read the chosen repo's `log.md` and `map.md`. For each completed problem, write a talking point into `talking-points.md`:
 
 ```
 ## <question an interviewer might ask, e.g. "How did you handle X?">
