@@ -2,6 +2,16 @@
 
 All notable changes to Design Duel are listed here. This project follows [Semantic Versioning](https://semver.org).
 
+## [1.0.3] - 2026-11-19
+
+### Fixed
+- Review and interview modes use the current repo (or one you name) and ask instead of quietly switching to another repo's log when there's nothing for it
+
+### Security
+- Suspicious content (text trying to instruct an AI) is recorded in a `Warnings` section of `map.md` as a path and a paraphrase, never copied word for word
+- The background mapping subagent now writes down what it finds instead of having no way to report it, and the user is told before the session goes on
+- Warnings come back up and ask for confirmation whenever that repo is resumed, reviewed, interviewed or offered
+
 ## [1.0.2] - 2026-11-18
 
 ### Fixed

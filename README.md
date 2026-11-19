@@ -98,8 +98,8 @@ Copy `skills/design-duel` into `~/.claude/skills/` (works in every project) or `
 | `/design-duel` | Duel the repo you're in |
 | `/design-duel <path>` | Duel a local repo |
 | `/design-duel <github-url>` | Clone and duel someone else's repo |
-| `/design-duel review` | Re-try the problems you struggled with last time |
-| `/design-duel interview` | Turn your session into interview talking points, then run a mock round |
+| `/design-duel review [repo]` | Re-try the problems you struggled with last time (this repo, or one you name) |
+| `/design-duel interview [repo]` | Turn your session into interview talking points, then run a mock round |
 
 You can also just talk to it: *"I'm stuck"*, *"skip this one"*, *"start over"*, *"how many problems are there?"*
 
