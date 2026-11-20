@@ -2,6 +2,13 @@
 
 All notable changes to Design Duel are listed here. This project follows [Semantic Versioning](https://semver.org).
 
+## [1.0.7] - 2026-11-20
+
+### Security
+- Cloned repos check out with symlinks off, and the skill never follows a symlink or reads a file outside the repo root, so a repo can't link to `~/.ssh` or cloud credentials and have them summarized into the map
+- `.env`, key, certificate and credentials files are never read. A hardcoded secret found in code is recorded by file and line only, never by value, in chat, the state files or the Sheet
+- Instruction-like repo text is paraphrased everywhere, including `fixes.md`, `talking-points.md` and the Sheet, not only in `map.md`
+
 ## [1.0.6] - 2026-11-20
 
 ### Changed
