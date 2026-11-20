@@ -41,7 +41,7 @@ The questions, constraints and verdicts are the same everywhere. What changes is
 
 ### Claude desktop app (Code tab): interactive
 
-Every step is something to play with: drag a slider until your design breaks, pick from approach cards when you're stuck, and get the verdict as a side-by-side card. Answers send in one click. This is the best way to use Design Duel.
+Every step is something to play with: drag a slider until your design breaks, pick from approach cards when you're stuck, and get the verdict as a side-by-side card. You type your designs in the chat as usual, and choices are one click. This is the best way to use Design Duel.
 
 <p align="center">
   <img src="assets/desktop-constraint.png" alt="A slider widget: batches of five jobs wait on their slowest job, leaving slots idle 70% of the time, with an answer box asking how to fix it" width="720">

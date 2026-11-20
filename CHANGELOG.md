@@ -2,6 +2,11 @@
 
 All notable changes to Design Duel are listed here. This project follows [Semantic Versioning](https://semver.org).
 
+## [1.0.6] - 2026-11-20
+
+### Changed
+- Widgets only show and simulate; they no longer contain answer boxes or Send/Continue buttons. Typed answers go in the normal chat box, and choices use the multiple-choice question tool, which sends in one click. This replaces the 1.0.5 approach: in the desktop app, widget forms only filled the input box, so every answer had to be sent twice
+
 ## [1.0.5] - 2026-11-20
 
 ### Fixed
