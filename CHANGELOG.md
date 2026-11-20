@@ -2,6 +2,14 @@
 
 All notable changes to Design Duel are listed here. This project follows [Semantic Versioning](https://semver.org).
 
+## [1.0.4] - 2026-11-20
+
+### Changed
+- On clients with widgets (like the Claude desktop app), the verdict is drawn as a card with both designs side by side instead of a text block that wraps
+
+### Fixed
+- When a widget asks the question, the chat text no longer asks it a second time
+
 ## [1.0.3] - 2026-11-19
 
 ### Fixed

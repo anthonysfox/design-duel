@@ -100,7 +100,7 @@ Make every step interactive, not a wall of text (see "Interactive by default" be
 
 ## 5. The verdict
 
-Once their design holds up, reveal the repo's approach using the general engineering name (e.g. "a job queue with retries"), never file or variable names, and no code. Then compare:
+Once their design holds up, reveal the repo's approach using the general engineering name (e.g. "a job queue with retries"), never file or variable names, and no code. Then compare, using these fields:
 
 ```
 Your design: <one line>
@@ -110,6 +110,10 @@ Where the repo's wins: <...>
 Verdict: yours is better | repo's is better | different trade-offs, both valid
 Why: <one or two sentences>
 ```
+
+How to show it:
+- With a widget tool: draw it as a verdict card, not a text block. Put "Your design" and "Repo's design" side by side, each with a one-line summary and a short "wins" list under it, and the verdict across the top as a clear badge (yours / repo's / both valid) with the one-line why. Keep it to what fits on one screen.
+- Without one: a plain text block with those fields, one per line. Keep each value short enough that lines don't wrap.
 
 Be honest in both directions. If their design is better, say so plainly. If the repo's code is weak (map says "weak"), point out the flaw even if they matched it, and ask how they'd fix it. A design they reached alone that beats the repo is the best possible result: celebrate it.
 
@@ -162,12 +166,13 @@ For the user's own project, phrase answers in first person as their decisions. T
 Walls of text kill a learning session, so every problem should feel like something to play with.
 
 - When an inline visual or widget tool is available (e.g. the Claude app): build each step as a small interactive widget, such as a timeline to tap through, a slider that makes something fail, or a simulate button that shows a race. End it with tappable choices or a text box that sends the answer back to chat. Keep any explanation outside the widget to two or three short lines.
+- When the widget asks the question (a text box or choices), the chat text around it must not ask it again. Use the text only to set up what to try in the widget.
 - Otherwise (e.g. Claude Code in a terminal): use small ASCII diagrams, and use a multiple-choice question tool for options and verdict picks if one is available. Keep text answers to a sentence or two.
 - Either way: one idea per screen, the user acts before they read, and no paragraphs.
 
 ## Rules
 
-- One question per message. Before sending, count the question marks and cut all but the first.
+- One question per message, counting the chat text and any widget together. Before sending, count the question marks across both and cut all but one.
 - Keep messages short. Visuals over paragraphs.
 - Don't list upcoming problems or volunteer how many there are. If the user asks, tell them honestly.
 - Pose the problem and ask how, never state the decision and ask why.
