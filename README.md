@@ -33,7 +33,46 @@ Here's a real round from a playlist sync app:
 >
 > **Verdict:** Same core design as the repo, but the repo retries failures every hour forever. **Yours is better.** Added to your fix log.
 
-Every step is something to tap, drag, or simulate when your Claude client supports it. No walls of text.
+---
+
+## Desktop app vs. terminal
+
+The questions, constraints and verdicts are the same everywhere. What changes is how they look.
+
+### Claude desktop app (Code tab): interactive
+
+Every step is something to play with: drag a slider until your design breaks, pick from approach cards when you're stuck, and get the verdict as a side-by-side card. Answers send in one click. This is the best way to use Design Duel.
+
+<p align="center">
+  <img src="assets/desktop-constraint.png" alt="A slider widget: batches of five jobs wait on their slowest job, leaving slots idle 70% of the time, with an answer box asking how to fix it" width="720">
+</p>
+<p align="center"><em>A constraint breaks your design: slow jobs leave the other slots idle.</em></p>
+
+<p align="center">
+  <img src="assets/desktop-options.png" alt="Four option cards, each a way to keep concurrency slots full, with a one-line trade-off" width="720">
+</p>
+<p align="center"><em>Stuck? You get real approaches with trade-offs, never the answer.</em></p>
+
+<p align="center">
+  <img src="assets/desktop-verdict.png" alt="A verdict card: 'Repo's is better, slightly' badge above your design and the repo's design side by side, each with its wins" width="720">
+</p>
+<p align="center"><em>The verdict: your design next to the repo's, honest both ways.</em></p>
+
+### Terminal and VS Code: text
+
+Same session, drawn in ASCII, with multiple-choice pickers for options. Works anywhere Claude Code runs.
+
+<p align="center">
+  <img src="assets/terminal-problem.png" alt="An ASCII diagram of a job queue with the missing piece marked ???, followed by the problem and the question" width="620">
+</p>
+<p align="center"><em>The problem as an ASCII sketch, with the missing piece marked <code>???</code>.</em></p>
+
+<p align="center">
+  <img src="assets/terminal-verdict.png" alt="An ASCII box with the verdict on top and your design and the repo's design in two columns, each with its wins" width="520">
+</p>
+<p align="center"><em>The same verdict as a text box.</em></p>
+
+All screenshots are from a real session on [sindresorhus/p-queue](https://github.com/sindresorhus/p-queue).
 
 ---
 
