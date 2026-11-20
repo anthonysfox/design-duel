@@ -32,6 +32,16 @@ Thanks for wanting to make Design Duel better! Ideas, bug reports and pull reque
 - [ ] `CHANGELOG.md` has a line for your change, and the version in `.claude-plugin/plugin.json` is bumped if it's a release
 - [ ] The CI check passes (it validates the plugin files and the skill's frontmatter)
 
+## Releasing (maintainers)
+
+1. In a PR, bump `version` in `.claude-plugin/plugin.json` and add a matching `## [x.y.z] - YYYY-MM-DD` section to `CHANGELOG.md`. Merge it.
+2. Tag the merged commit and push the tag:
+   ```bash
+   git checkout main && git pull
+   git tag vX.Y.Z && git push origin vX.Y.Z
+   ```
+3. The Release workflow checks that the tag matches `plugin.json`, builds `design-duel-skill.zip` from `skills/design-duel`, and publishes the GitHub release with the notes from `CHANGELOG.md`. Don't build or upload the zip by hand.
+
 ## Style
 
 Plain words, short sentences, no em-dashes. The skill talks to people who may be tired after a long day of coding: keep it friendly and direct.
