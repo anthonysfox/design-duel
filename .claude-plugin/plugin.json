@@ -1,6 +1,6 @@
 {
   "name": "design-duel",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Learn a codebase by designing its parts yourself, then see an honest verdict on whether your design or the repo's is better.",
   "author": {
     "name": "Anthony Fox",

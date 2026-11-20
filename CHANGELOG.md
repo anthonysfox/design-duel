@@ -2,6 +2,11 @@
 
 All notable changes to Design Duel are listed here. This project follows [Semantic Versioning](https://semver.org).
 
+## [1.0.5] - 2026-11-20
+
+### Fixed
+- Answers in widgets send in one click: the skill uses the widget tool's built-in form instead of a button that only filled the input box (meant for 1.0.4, but left out of that release)
+
 ## [1.0.4] - 2026-11-20
 
 ### Changed
