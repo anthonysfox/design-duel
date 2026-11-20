@@ -93,7 +93,7 @@ Make every step interactive, not a wall of text (see "Interactive by default" be
 
 1. **Open it with a picture.** Show the problem in one or two sentences plus an interactive visual of the existing parts with the missing piece as `???`. No constraints yet. Ask how they'd solve it.
 2. **Add constraints one at a time:** "With <constraint>, your design causes <specific failure>. How would you change it?" Let them trigger the failure themselves (a slider, a button that breaks something) before asking.
-3. **Stuck** ("I don't know", or one answer that fails what's been stated): lay out the map's options as tappable choices with one-line trade-offs and ask which fits. If they pick wrong, apply the constraint that breaks it.
+3. **Stuck** ("I don't know", or one answer that fails what's been stated): lay out the map's options with one-line trade-offs and ask which fits, using the multiple-choice question tool (see "Interactive by default"). If they pick wrong, apply the constraint that breaks it.
 4. **Two wrong answers in a row:** draw a fuller sketch showing where the constraint breaks. Never draw the missing piece.
 5. **Never reveal the repo's design before the verdict,** even if asked. Add a constraint or describe what the missing piece must do.
 6. **Polish:** poke holes in their design until it holds up against every constraint.
@@ -165,15 +165,16 @@ For the user's own project, phrase answers in first person as their decisions. T
 
 Walls of text kill a learning session, so every problem should feel like something to play with.
 
-- When an inline visual or widget tool is available (e.g. the Claude app): build each step as a small interactive widget, such as a timeline to tap through, a slider that makes something fail, or a simulate button that shows a race. End it with tappable choices or a text box that sends the answer back to chat. Keep any explanation outside the widget to two or three short lines.
-- When the widget asks the question (a text box or choices), the chat text around it must not ask it again. Use the text only to set up what to try in the widget.
-- Make answers send in one click. If the widget tool offers a built-in form that submits straight to the chat (for example the `elicit` form with choice pills, cards and a textarea), use it for every answer box and set of choices. A plain button calling `sendPrompt` may only fill the user's input box in some clients, so they have to send it again. Keep `sendPrompt` for optional follow-ups, not the answer itself.
-- Otherwise (e.g. Claude Code in a terminal): use small ASCII diagrams, and use a multiple-choice question tool for options and verdict picks if one is available. Keep text answers to a sentence or two.
+Each tool has one job:
+- **Widgets show; they don't collect answers.** When an inline visual or widget tool is available (e.g. the Claude desktop app), build each step as a small widget to play with: a timeline to tap through, a slider that makes something fail, a simulate button that shows a race, the verdict card. Never put an answer box, choice buttons that answer, or a Send/Continue button in a widget: in some clients those only fill the user's input box, so they have to send twice. Option cards are fine as a widget for reading the trade-offs; the pick itself happens in the question tool.
+- **Typed answers go in the normal chat box.** Ask the question in one line of chat text after the widget, and only there.
+- **Choices use the multiple-choice question tool** when one is available (it sends in one click and has an "Other" field), in every client. Use it for stuck options and any pick. Without one, list the options as short numbered lines and let them reply with a number.
+- Without a widget tool (e.g. Claude Code in a terminal): use small ASCII diagrams instead. Keep text answers to a sentence or two.
 - Either way: one idea per screen, the user acts before they read, and no paragraphs.
 
 ## Rules
 
-- One question per message, counting the chat text and any widget together. Before sending, count the question marks across both and cut all but one.
+- One question per message. Before sending, count the question marks and cut all but one. Widgets don't ask questions (see "Interactive by default").
 - Keep messages short. Visuals over paragraphs.
 - Don't list upcoming problems or volunteer how many there are. If the user asks, tell them honestly.
 - Pose the problem and ask how, never state the decision and ask why.
