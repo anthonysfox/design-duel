@@ -167,6 +167,7 @@ Walls of text kill a learning session, so every problem should feel like somethi
 
 - When an inline visual or widget tool is available (e.g. the Claude app): build each step as a small interactive widget, such as a timeline to tap through, a slider that makes something fail, or a simulate button that shows a race. End it with tappable choices or a text box that sends the answer back to chat. Keep any explanation outside the widget to two or three short lines.
 - When the widget asks the question (a text box or choices), the chat text around it must not ask it again. Use the text only to set up what to try in the widget.
+- Make answers send in one click. If the widget tool offers a built-in form that submits straight to the chat (for example the `elicit` form with choice pills, cards and a textarea), use it for every answer box and set of choices. A plain button calling `sendPrompt` may only fill the user's input box in some clients, so they have to send it again. Keep `sendPrompt` for optional follow-ups, not the answer itself.
 - Otherwise (e.g. Claude Code in a terminal): use small ASCII diagrams, and use a multiple-choice question tool for options and verdict picks if one is available. Keep text answers to a sentence or two.
 - Either way: one idea per screen, the user acts before they read, and no paragraphs.
 
