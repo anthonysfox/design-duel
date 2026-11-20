@@ -1,0 +1,57 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Check plugin files and skill frontmatter
+        run: python3 scripts/validate.py
+
+      - name: Check the tag matches plugin.json
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          version=$(python3 -c 'import json; print(json.load(open(".claude-plugin/plugin.json"))["version"])')
+          if [ "$TAG" != "v$version" ]; then
+            echo "::error::Tag $TAG doesn't match plugin.json version $version. Bump the version, merge, then tag v$version."
+            exit 1
+          fi
+
+      - name: Build the skill zip
+        run: |
+          cd skills
+          zip -qrX ../design-duel-skill.zip design-duel -x '*.DS_Store'
+          cd ..
+          unzip -l design-duel-skill.zip
+
+      - name: Pull release notes from CHANGELOG.md
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          awk -v v="${TAG#v}" '
+            $0 ~ "^## \\[" v "\\]" { on = 1; next }
+            on && /^## \[/ { exit }
+            on { print }
+          ' CHANGELOG.md > notes.md
+          [ -s notes.md ] || echo "See CHANGELOG.md." > notes.md
+          cat notes.md
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" design-duel-skill.zip --clobber
+          else
+            gh release create "$TAG" --title "${TAG#v}" --notes-file notes.md --verify-tag design-duel-skill.zip
+          fi
